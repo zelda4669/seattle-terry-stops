@@ -14,8 +14,12 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
 
-def metrics(model, x_test, y_test):
-    plot_confusion_matrix(model, x_test, y_test, cmap=plt.cm.Blues)
+def metrics(model, x_train, y_train, x_test, y_test):
+    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(15, 6))
+    plot_confusion_matrix(model, x_train, y_train, ax=ax[0], cmap=plt.cm.Blues, xticks_rotation='vertical')
+    ax[0].set_title('Train Confusion Matrix')
+    plot_confusion_matrix(model, x_test, y_test, ax=ax[1], cmap=plt.cm.Blues, xticks_rotation='vertical')
+    ax[1].set_title('Test Confusion Matrix')
     plt.show()
     print(classification_report(y_test, model.predict(x_test)))
     print('\n')
@@ -25,7 +29,7 @@ def make_model(model, x_train, y_train):
 
 def all_models(x_train, x_test, y_train, y_test):
     objects = [LogisticRegression(fit_intercept=False, C=1e12), Pipeline([('ss', StandardScaler()), ('knn', KNeighborsClassifier())]), 
-               GaussianNB(), DecisionTreeClassifier(), RandomForestClassifier(), XGBClassifier(use_label_encoder=False), 
+               GaussianNB(), DecisionTreeClassifier(), RandomForestClassifier(), XGBClassifier(), 
                Pipeline([('ss', StandardScaler()), ('svm', SVC())])]
     models = []
     precision = []
@@ -38,7 +42,7 @@ def all_models(x_train, x_test, y_train, y_test):
     for i, o in enumerate(objects):
         print(f'{index[i]} Results:')
         models.append(make_model(o, x_train, y_train))
-        metrics(models[-1], x_test, y_test)
+        metrics(models[-1], x_train, y_train, x_test, y_test)
         
     for i in models:
         prediction = i.predict(x_test)
