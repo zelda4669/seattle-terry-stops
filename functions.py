@@ -46,10 +46,10 @@ def all_models(x_train, x_test, y_train, y_test):
         
     for i in models:
         prediction = i.predict(x_test)
-        precision.append(precision_score(y_test, prediction, average='micro'))
-        recall.append(recall_score(y_test, prediction, average='micro'))
+        precision.append(precision_score(y_test, prediction, average='macro'))
+        recall.append(recall_score(y_test, prediction, average='macro'))
         accuracy.append(accuracy_score(y_test, prediction))
-        f1.append(f1_score(y_test, prediction, average='micro'))
+        f1.append(f1_score(y_test, prediction, average='macro'))
     df = pd.DataFrame(np.array([precision, recall, accuracy, f1]).T, 
                       index = index, columns = ['Precision Score', 'Recall Score', 'Accuracy Score', 'F1 Score']).style.format('{:.2%}')
     display(df)
