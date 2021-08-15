@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -59,3 +60,14 @@ def all_models(x_train, x_test, y_train, y_test):
     print(f'The model with the highest F1 score is {df.data.idxmax()[3]}.')
 
     return models
+
+def plot_importances(model, index, title='Feature Importances'):
+    f_import = pd.Series(model.feature_importances_, index=index)
+    plot = f_import.nlargest(20).to_frame()
+    
+    fig, ax = plt.subplots(figsize=(15, 8))
+    sns.barplot(data=plot, y=plot.index, x=0)
+    ax.set_title(title)
+    ax.set_xlabel('Importance')
+    ax.set_ylabel('Feature')
+    plt.show();
