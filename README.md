@@ -5,6 +5,6 @@ Using predictive modelling, I have analyzed [publicly available data on Terry St
 
 ![Racial Demographics of Terry Stop Subjects Compared to Racial Demographics of the city of Seattle](https://github.com/zelda4669/seattle-terry-stops/blob/main/demographics%20plot.png)
 
-By plotting the data against [census data] for the city of Seattle, we can see that black people are extremely disproportionately represented in the population of Terry Stop subjects.
+By plotting the data against [census data](https://www.census.gov/quickfacts/seattlecitywashington) for the city of Seattle, we can see that black people are extremely disproportionately represented in the population of Terry Stop subjects.
 
 After applying multiple different types of models to the data and tuning hyperparameters, I developed a model that can predict a stop's resolution with 84% accuracy. Exploration of the most important features of these models lead to the conclusion that while there is a clear racial bias in determining who gets stopped, once the stop has been made race is not a very important indicator in predicting it's resolution.
