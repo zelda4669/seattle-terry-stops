@@ -3,11 +3,7 @@
 The Seattle Police Department has been under increased scrutiny in the wake of 2020’s Black Lives Matter protests, particularly the Capitol Hill Occupied Protest, and as a result of this increased scrutiny, is facing budget cuts and increased pressure for reform, including calls to abolish the police entirely. I wanted to investigate if there is clear evidence of racially motivated bias within the SPD. 
 Using predictive modelling, I have analyzed [publicly available data on Terry Stops](https://data.seattle.gov/Public-Safety/Terry-Stops/28ny-9ts8) to determine what elements are most important in determining the resolution of a Terry Stop. 
 
-<<<<<<< HEAD
-![Racial Demographics of Terry Stop Subjects Compared to Racial Demographics of the city of Seattle](https://github.com/zelda4669/seattle-terry-stops/blob/main/Media/demographics%plot.png)
-=======
-![Racial Demographics of Terry Stop Subjects Compared to Racial Demographics of the city of Seattle](https://github.com/zelda4669/seattle-terry-stops/blob/main/demographics%20plot.png)
->>>>>>> 7e4b81c302c7ee9272fdd4e772f07c62bd676551
+![Racial Demographics of Terry Stop Subjects Compared to Racial Demographics of the city of Seattle](https://github.com/zelda4669/seattle-terry-stops/blob/main/Media/demographics%20plot.png)
 
 By plotting the data against [census data](https://www.census.gov/quickfacts/seattlecitywashington) for the city of Seattle, we can see that black people are extremely disproportionately represented in the population of Terry Stop subjects.
 
